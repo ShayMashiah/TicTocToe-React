@@ -9,6 +9,7 @@ const Grid = () => {
   const [displayBoard, setDisplayBoard] = useState(Array(9).fill(""));
   const [currentPlayer, setCurrentPlayer] = useState("X");
 
+  // Check if there is a winner
   const checkWinner = () => {
     const winningCombos = [
       [0, 1, 2],
@@ -35,6 +36,7 @@ const Grid = () => {
     return null;
   };
 
+  // Handle click on a cell
   const handleClick = (index) => {
     if (board[index] === "" && !checkWinner()) {
 
@@ -66,6 +68,7 @@ const Grid = () => {
     }
   };
 
+  // Handle restart button
   const handleRestart = () => {
     setBoard(Array(9).fill(""));
     setDisplayBoard(Array(9).fill(""));
@@ -73,8 +76,9 @@ const Grid = () => {
   };
 
   const winner = checkWinner();
-  const isGameOver = winner !== null;
 
+
+  // Display the status of the game
   let status = winner
   if (winner == "draw") {
         status = "It's a draw!"
@@ -84,6 +88,7 @@ const Grid = () => {
         status = "Current player is: " + currentPlayer
     }
 
+    // Display the game board
   return (
     <div className="container">
       <div className="column-container">
@@ -93,7 +98,7 @@ const Grid = () => {
           ))}
         </div>
         <h2 className="status">{status}</h2>
-        {isGameOver ? <RestartButton onClick={handleRestart} /> : null}
+        {winner !== null ? <RestartButton onClick={handleRestart} /> : null}
       </div>
     </div>
   );
