@@ -1,0 +1,23 @@
+.navbar {
+    background: linear-gradient(90deg, blue, red);     
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 0;
+  }
+
+.navbar-center {
+    list-style-type: none;
+    display: flex;
+    justify-content: center; 
+    background: none; 
+    border: none; 
+}
+
+.navbar-center h3 {
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+
+
+  
